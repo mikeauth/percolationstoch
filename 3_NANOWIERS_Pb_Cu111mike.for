@@ -43,7 +43,7 @@ C     RPB diameter of Pb atom
 C
 C       POTENTIAL  Pb - Cu
 C
-      PARAMETER(UPBCU=1.0577, APBCU=0.09175/UPBCU, RPBCU = 1.1847) !MISTAKE: 1.11847
+      PARAMETER(UPBCU=1.0577, APBCU=0.09175/UPBCU, RPBCU = (RCU+RPB)/2) !1.1847) !MISTAKE: 1.11847
       PARAMETER(PPBCU = 10.268/RPBCU, QPBCU = 5.926/RPBCU)
 C   arithmetic average               
 C      
@@ -415,8 +415,8 @@ C      Size of Cu and Pb atoms in pov-ray, according to RCU and RPB
 
 C        IMPORTANT:
 
-         RPOV(1) = 0.50   ! Cu - radius za chertane w POV	(1/2 ot RCU)
-         RPOV(2) = 0.68 	! Pb - radius za chertane w POV	(1/2 ot RPB)
+         RPOV(1) = RCU/2.0 ! 0.50   ! Cu - radius za chertane w POV	(1/2 ot RCU)
+         RPOV(2) = RPB/2.0 ! 0.68 	! Pb - radius za chertane w POV	(1/2 ot RPB)
 
 
 C -------------------------------------------------------------
@@ -451,11 +451,11 @@ C
         NNN = NNN + 1
 
         if(NNN.LE.50)then
-           X(N) = 2.9915 + (NNN-1)*2*0.684
+           X(N) = 2.9915 + (NNN-1)*RPB !*2*0.684
          elseif(NNN.LE.100)then
-           X(N) = 3.514 + (NNN-50-1)*2*0.684
+           X(N) = 3.514 + (NNN-50-1)*RPB !*2*0.684
         else
-           X(N) = 3.5307 + (NNN-100-1)*2*0.684
+           X(N) = 3.5307 + (NNN-100-1)*RPB !*2*0.684
         endif
 
 
