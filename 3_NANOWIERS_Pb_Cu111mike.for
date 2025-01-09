@@ -228,6 +228,7 @@ C      COV1 = 0
         FN3 = CHAR(II9 + 48)
         FN1 = CHAR(II1 + 48)
         FN2 = CHAR(II2 + 48)
+C       relative?
         FNAME = 'C:\Pb-Cu\RESLG'//FN3//FN1//FN2
         WRITE(*,*)FNAME
 C       RESULT = MAKEDIRQQ(FNAME)
