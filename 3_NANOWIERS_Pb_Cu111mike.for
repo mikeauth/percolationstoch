@@ -228,7 +228,6 @@ C      COV1 = 0
         FN3 = CHAR(II9 + 48)
         FN1 = CHAR(II1 + 48)
         FN2 = CHAR(II2 + 48)
-C       relative?
         FNAME = 'C:\Pb-Cu\RESLG'//FN3//FN1//FN2
         WRITE(*,*)FNAME
 C       RESULT = MAKEDIRQQ(FNAME)
@@ -453,7 +452,7 @@ C
 
         if(NNN.LE.50)then
            X(N) = 2.9915 + (NNN-1)*RPB !*2*0.684
-         elseif(NNN.LE.100)then
+        elseif(NNN.LE.100)then
            X(N) = 3.514 + (NNN-50-1)*RPB !*2*0.684
         else
            X(N) = 3.5307 + (NNN-100-1)*RPB !*2*0.684
@@ -462,13 +461,13 @@ C
 
         if(NNN.LE.50)then
            Y(N) = 14.9993
-         elseif(NNN.LE.100)then
+        elseif(NNN.LE.100)then
            Y(N) = 38.475
-         else
+        else
            Y(N) = 60.8887
-        endif    
+        endif
 
-
+C       WHY ???????
         Z(N) = 2.3586 
         NSTAT(N) = 2
       END DO
