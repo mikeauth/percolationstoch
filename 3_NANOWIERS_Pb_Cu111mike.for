@@ -452,24 +452,24 @@ C
 
         if(NNN.LE.50)then
            X(N) = 2.9915 + (NNN-1)*RPB !*2*0.684
-         elseif(NNN.LE.100)then
+        elseif(NNN.LE.100)then
            X(N) = 3.514 + (NNN-50-1)*RPB !*2*0.684
         else
            X(N) = 3.5307 + (NNN-100-1)*RPB !*2*0.684
         endif
 
 
-         if(NNN.LE.50)then
-            Y(N) = 14.9993
-          elseif(NNN.LE.100)then
-            Y(N) = 38.475
-          else
-            Y(N) = 60.8887
-         endif    
+        if(NNN.LE.50)then
+           Y(N) = 14.9993
+        elseif(NNN.LE.100)then
+           Y(N) = 38.475
+        else
+           Y(N) = 60.8887
+        endif    
 
 
-         Z(N) = 2.3586 
-         NSTAT(N) = 2
+        Z(N) = 2.3586 
+        NSTAT(N) = 2
       END DO
       OPEN(27,FILE='INITIAL.DAT')
         WRITE(27,173) (X(I), Y(I), Z(I), I=NCUSUB+1,NATALL)
