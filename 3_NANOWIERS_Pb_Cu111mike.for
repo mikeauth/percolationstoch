@@ -34,7 +34,7 @@ C
 C       POTENTIAL  Pb - Pb
 C
 C     PARAMETER(UPB=0.914,APB=0.098/UPB,RPB = 1.36957)  
-      PARAMETER(UPB=0.914,APB=0.098/UPB,RPB = 1.05)
+      PARAMETER(UPB=0.914,APB=0.098/UPB,RPB = 1.5)
 C	    RPB = 1.36957 - Initial Value // CHANGE to 1.05, 1.10, etc.
 
       PARAMETER(PPB = 9.576/RPB, QPB = 7.296/RPB)
@@ -451,7 +451,8 @@ C
         NNN = NNN + 1
 
         if(NNN.LE.50)then
-           X(N) = 2.9915 + (NNN-1)*RPB !*2*0.684
+C           X(N) = 2.9915 + (NNN-1)*RPB !*2*0.684
+           X(N) = 5.0 + (NNN-1)*RPB !*2*0.684
         elseif(NNN.LE.100)then
            X(N) = 3.514 + (NNN-50-1)*RPB !*2*0.684
         else
@@ -460,7 +461,8 @@ C
 
 
         if(NNN.LE.50)then
-           Y(N) = 14.9993
+C           Y(N) = 14.9993
+           Y(N) = 2*0.57735 + 8*1.732 
         elseif(NNN.LE.100)then
            Y(N) = 38.475
         else
@@ -468,7 +470,8 @@ C
         endif
 
 C       WHY ???????
-        Z(N) = 2.3586 
+C        Z(N) = 2.3586 
+        Z(N) = 1.633 + SQRT((RPB+1)*(RPB+1)/4.0 - 1.0/3.0)
         NSTAT(N) = 2
       END DO
       OPEN(27,FILE='INITIAL.DAT')
